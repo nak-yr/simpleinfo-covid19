@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Covid-19 対策サイト 概要
 
-## Available Scripts
+## 経緯
 
-In the project directory, you can run:
+- 政府関連のコロナ対策サイトは数字ばかりで感覚的に理解しにくい
+  - 色分けとかされているけどちょっと情報が多い
+- 「増えた」「減った」「検査数と併せてみるとどうだ」みたいに感覚的な指標もあっていいのではないか
+  - 数値的な指標は専門家の方々がたくさん出してくれているので...
+- コーディングの練習もかねて自分なりのコロナ情報ポータルを作ってみよう
+- 使用技術
+  - JavaScript(React.js)：UI周り
+  - Python：オープンデータ加工？
+  - 国が提供するオープンデータ：JSONやCSV
 
-### `npm start`
+## 内閣官房 コロナ関連データサイト
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 県別累積感染者数など
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- 累積の陽性者数
+  - https://data.corona.go.jp/converted-json/covid19japan-npatients.json
+- 入院治療を要する者
+  - https://data.corona.go.jp/converted-json/covid19japan-ncures.json
+- 累積の志望者数
+  - https://data.corona.go.jp/converted-json/covid19japan-ndeaths.json
+- 都道府県別累積の陽性者数
+  - https://data.corona.go.jp/converted-json/covid19japan-all.json
 
-### `npm test`
+### 全国医療機関の医療提供体制の状況 オープンデータ
+- https://opendata.corona.go.jp/api/covid19DailySurvey
+- 全国の医療機関の医療提供状況をJSON形式で利用可能
+- 
+```
+・データの絞り込み
+    クエリ文字列をJSONのKey名=値の形で付与すれば絞り込みデータの抽出が可能です。
+    例　石川県のデータ
+    https://opendata.corona.go.jp/api/covid19DailySurvey?prefName=石川県
+    例　北海道　函館市のデータ
+    https://opendata.corona.go.jp/api/covid19DailySurvey?localGovCode=012025
+    ※複数は指定できません
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ・日付を指定したデータ
+    2020年5月19日以降のデータを取得できます。
+    URLの最後に /yyyymmdd　で日付を指定してください
+    例
+    https://opendata.corona.go.jp/api/covid19DailySurvey/20200519
+    ※さらに絞り込み用のクエリ文字列を付与し絞り込むことも可能です
+    例
+    https://opendata.corona.go.jp/api/covid19DailySurvey/20200519?prefName=北海道
 
-### `npm run build`
+    全国の医療機関の医療提供状況をCSV形式でご利用いただけます。
+    https://covid-19-monitoring.s3-ap-northeast-1.amazonaws.com/public_data/covid-19_daily_survey.csv
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## オープンデータ - 厚生労働省
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- https://www.mhlw.go.jp/stf/covid-19/open-data.html
+- CSV形式なのでJSONで使うなら変換が必要
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 新型コロナウイルス対策ダッシュボード
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- https://www.stopcovid19.jp/
+- 

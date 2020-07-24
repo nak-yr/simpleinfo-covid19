@@ -1,15 +1,26 @@
 import React from "react";
-import axios from "axios";
+import PropTypes from "prop-types";
 
-function dataOperations() {
-  const url = "https://data.corona.go.jp/converted-json/covid19japan-npatients.json";
-
-  axios.get(url).then(function (response) {
-    // handle success
-    console.log(response.data);
-  });
-
-  return <h2>hogehoge</h2>;
+class DataOperations extends React.Component {
+  render() {
+    const nPatientsDaily = this.props.data;
+    return (
+      <React.Fragment>
+        <ul>
+          {nPatientsDaily.map((nPatient, index) => (
+            <li key={index}>
+              {nPatient.date} : 新規感染者数 {nPatient.adpatients}, 累計感染者数 {nPatient.npatients}
+            </li>
+          ))}
+        </ul>
+      </React.Fragment>
+    );
+  }
 }
 
-export default dataOperations;
+// propsのタイプを検証
+DataOperations.propTypes = {
+  data: PropTypes.array,
+};
+
+export default DataOperations;

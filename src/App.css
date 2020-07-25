@@ -3,10 +3,11 @@ h2 {
   font-size: calc(10px + 2vw)!important;
 }
 
-.wholeCard {
+.cardParts {
   width: 90vw;
   margin: auto;
-  margin-top: 2vw;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .todaysPatientsWrapper {

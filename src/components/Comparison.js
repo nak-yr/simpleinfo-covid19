@@ -4,6 +4,18 @@ import { Card } from "react-bootstrap";
 import "../App.css";
 
 class Comparison extends React.Component {
+  // latestとbeforeの差diffから、表示するメッセージを選択する関数
+  messageDetector(diff) {
+    if (diff > 0) {
+      var diffMessage = diff + "人増加";
+    } else if (diff < 0) {
+      diffMessage = Math.abs(diff) + "人減少";
+    } else {
+      diffMessage = "変化なし";
+    }
+    return diffMessage;
+  }
+
   render() {
     if (this.props.latest !== null && this.props.before !== null) {
       const diff = this.props.latest.adpatients - this.props.before.adpatients;
@@ -12,7 +24,7 @@ class Comparison extends React.Component {
           <Card.Header>比較</Card.Header>
           <Card.Body>
             <Card.Title>
-              {this.props.before.date}と比べて<b>{diff}</b>人増加
+              {this.props.before.date}と比べて<b>{this.messageDetector(diff)}</b>
             </Card.Title>
             <Card.Text>
               {this.props.before.date} : {this.props.before.adpatients}人 <br />

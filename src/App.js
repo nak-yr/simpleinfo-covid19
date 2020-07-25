@@ -5,8 +5,8 @@ import DataOperations from "./components/DataOperations";
 import NavBar from "./components/NavBar";
 
 // コロナ類型感染者の日別データソース
-//const url = "http://localhost:3000/data/covid19japan-npatients.json";
-const url = "https://data.corona.go.jp/converted-json/covid19japan-npatients.json";
+const url = "http://localhost:3000/data/covid19japan-npatients.json";
+//const url = "https://data.corona.go.jp/converted-json/covid19japan-npatients.json";
 
 class App extends React.Component {
   constructor() {

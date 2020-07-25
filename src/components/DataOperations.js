@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Alert, Card, Spinner } from "react-bootstrap";
 import Comparison from "./Comparison";
+import Charts from "./Charts";
 import "../App.css";
 
 // 日本全体の日別感染者数を格納するArray
@@ -32,7 +33,7 @@ class DataOperations extends React.Component {
     // 処理が完了した(=配列にデータが格納された)場合はその中身を表示
     else {
       return (
-        <Card body border="secondary" className="wholeCard">
+        <React.Fragment>
           <div className="todaysPatientsWrapper">
             <Alert variant="danger">
               <h2>
@@ -43,14 +44,13 @@ class DataOperations extends React.Component {
           <div className="someInfo">
             <Comparison latest={nPatientsLatest} before={nPatientsBefore} />
           </div>
-          <ul>
-            {nPatientsDaily.map((nPatient, index) => (
-              <li key={index}>
-                {nPatient.date} : 新規感染者数 {nPatient.adpatients}, 累計感染者数 {nPatient.npatients}
-              </li>
-            ))}
-          </ul>
-        </Card>
+          <Card className="cardParts">
+            <Card.Header>グラフ</Card.Header>
+            <Card.Body>
+              <Charts data={this.props.data} />
+            </Card.Body>
+          </Card>
+        </React.Fragment>
       );
     }
   }

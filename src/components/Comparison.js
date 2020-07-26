@@ -4,6 +4,16 @@ import { Card } from "react-bootstrap";
 import "../App.css";
 
 class Comparison extends React.Component {
+  titleDetector(type) {
+    switch (type) {
+      case "adpatients":
+        return "新規感染者数";
+      case "ndeaths":
+        return "死亡者数";
+      default:
+        return null;
+    }
+  }
   // latestとbeforeの差diffから、表示するメッセージを選択する関数
   messageDetector(diff) {
     if (diff > 0) {
@@ -21,7 +31,7 @@ class Comparison extends React.Component {
       const diff = this.props.latest.adpatients - this.props.before.adpatients;
       return (
         <Card>
-          <Card.Header>比較</Card.Header>
+          <Card.Header>{this.titleDetector(this.props.type)}</Card.Header>
           <Card.Body>
             <Card.Title>
               {this.props.before.date}と比べて<b>{this.messageDetector(diff)}</b>
@@ -53,6 +63,7 @@ Comparison.defaultProps = {
 
 // propsのタイプを検証
 Comparison.propTypes = {
+  type: PropTypes.string,
   latest: PropTypes.object,
   before: PropTypes.object,
 };

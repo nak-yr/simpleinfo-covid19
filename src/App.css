@@ -25,3 +25,14 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+
+.custom-tooltip {
+  opacity: 0.85;
+  background-color: white;
+  border: solid;
+  border-color: #ccc;
+}
+
+.label {
+  text-align: center;
+}

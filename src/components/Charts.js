@@ -11,6 +11,7 @@ import {
   Legend,
   Tooltip,
   ResponsiveContainer,
+  ComposedChart,
 } from "recharts";
 import "../App.css";
 
@@ -36,13 +37,13 @@ class Charts extends React.Component {
     const renderLineChart = (
       <div style={{ height: "50vh", width: "80%", margin: "auto" }}>
         <ResponsiveContainer>
-          <BarChart data={this.props.data}>
+          <ComposedChart data={this.props.adpatients}>
             <Bar type="monotone" dataKey="adpatients" fill="#8884d8" />
             <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip content={<CustomTooltip />} />
-          </BarChart>
+          </ComposedChart>
         </ResponsiveContainer>
       </div>
     );
@@ -52,7 +53,7 @@ class Charts extends React.Component {
 
 // propsのタイプを検証
 Charts.propTypes = {
-  data: PropTypes.array,
+  adpatients: PropTypes.array,
 };
 
 export default Charts;

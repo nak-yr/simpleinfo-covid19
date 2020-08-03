@@ -22,13 +22,13 @@ var nDeathBefore = [];
 class DataOperations extends React.Component {
   render() {
     // Appコンポーネントからのpropsで内閣官房のオープンデータを受け取り、格納
-    nPatientsDaily = this.props.data;
+    nPatientsDaily = this.props.adpatients;
     // 最新日のデータはpropsの最後の要素なのでsliceで取り出す
     nPatientsLatest = nPatientsDaily.slice(-1)[0];
     nPatientsBefore = nPatientsDaily.slice(-2)[0];
 
     // Appコンポーネントからのpropsでコロナ死亡者数のオープンデータを受け取り、格納
-    nDeathDaily = this.props.dataDeath;
+    nDeathDaily = this.props.ndeaths;
     nDeathLatest = nDeathDaily.slice(-1)[0];
     nDeathBefore = nDeathDaily.slice(-2)[0];
 
@@ -60,7 +60,7 @@ class DataOperations extends React.Component {
           <Card className="cardParts">
             <Card.Header>グラフ</Card.Header>
             <Card.Body>
-              <Charts data={this.props.data} />
+              <Charts adpatients={this.props.adpatients} ndeaths={this.props.ndeaths} />
             </Card.Body>
           </Card>
         </React.Fragment>
@@ -71,8 +71,8 @@ class DataOperations extends React.Component {
 
 // propsのタイプを検証
 DataOperations.propTypes = {
-  data: PropTypes.array,
-  dataDeath: PropTypes.array,
+  adpatients: PropTypes.array,
+  ndeaths: PropTypes.array,
 };
 
 export default DataOperations;

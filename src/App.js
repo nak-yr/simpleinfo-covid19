@@ -5,8 +5,8 @@ import DataOperations from "./components/DataOperations";
 import NavBar from "./components/NavBar";
 
 // コロナ類型感染者の日別データソース
-const urlWholeJP = "http://localhost:3000/data/covid19japan-npatients.json";
-//const urlWholeJP = "https://data.corona.go.jp/converted-json/covid19japan-npatients.json";
+//const urlWholeJP = "http://localhost:3000/data/covid19japan-npatients.json";
+const urlWholeJP = "https://data.corona.go.jp/converted-json/covid19japan-npatients.json";
 const urlDeath = "https://data.corona.go.jp/converted-json/covid19japan-ndeaths.json";
 
 class App extends React.Component {
@@ -63,7 +63,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <NavBar />
-        <DataOperations data={this.state.data} dataDeath={this.state.dataDeath} />
+        <DataOperations adpatients={this.state.data} ndeaths={this.state.dataDeath} />
       </React.Fragment>
     );
   }

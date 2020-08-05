@@ -26,7 +26,7 @@ class Charts extends React.Component {
               <b>{label}</b>
             </p>
             <p className="intro">
-              新規感染者 <b>{payload[0].value}</b> 人
+              新規陽性者 <b>{payload[0].value}</b> 人
             </p>
           </div>
         );
@@ -35,7 +35,7 @@ class Charts extends React.Component {
     }
 
     const renderLineChart = (
-      <div style={{ height: "50vh", width: "80%", margin: "auto" }}>
+      <div style={{ height: "50vmin", width: "95%", margin: "1vh 0 1vh 0" }}>
         <ResponsiveContainer>
           <ComposedChart data={this.props.adpatients}>
             <Bar type="monotone" dataKey="adpatients" fill="#8884d8" />

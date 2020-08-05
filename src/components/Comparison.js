@@ -10,7 +10,7 @@ class Comparison extends React.Component {
     switch (type) {
       case "adpatients":
         return {
-          type: "新規感染者数",
+          type: "新規陽性者数",
           diff: this.props.latest.adpatients - this.props.before.adpatients,
           latest: this.props.latest.adpatients,
           before: this.props.before.adpatients,
@@ -48,8 +48,8 @@ class Comparison extends React.Component {
           <Card.Body>
             <Card.Title>前日比：{this.messageDetector(diffInfo.diff)}</Card.Title>
             <Card.Text>
-              {this.props.before.date} : {diffInfo.latest}人 <br />
-              {this.props.latest.date} : {diffInfo.before}人
+              {this.props.before.date} : {diffInfo.before}人 <br />
+              {this.props.latest.date} : {diffInfo.latest}人
             </Card.Text>
           </Card.Body>
         </Card>

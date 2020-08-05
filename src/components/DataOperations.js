@@ -49,7 +49,7 @@ class DataOperations extends React.Component {
           <div className="todaysPatientsWrapper">
             <Alert variant="danger">
               <h2>
-                {nPatientsLatest.date}の新規感染者数 : {nPatientsLatest.adpatients} 人
+                {nPatientsLatest.date}の新規陽性者数 : {nPatientsLatest.adpatients} 人
               </h2>
             </Alert>
           </div>
@@ -59,7 +59,7 @@ class DataOperations extends React.Component {
           </div>
           <Card className="cardParts">
             <Card.Header>グラフ</Card.Header>
-            <Card.Body>
+            <Card.Body className="charts">
               <Charts adpatients={this.props.adpatients} ndeaths={this.props.ndeaths} />
             </Card.Body>
           </Card>

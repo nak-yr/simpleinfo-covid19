@@ -49,7 +49,7 @@ class DataOperations extends React.Component {
           <div className="todaysPatientsWrapper">
             <Alert variant="danger">
               <h2>
-                {nPatientsLatest.date}の新規陽性者数 : {nPatientsLatest.adpatients} 人
+                {nPatientsLatest.date.split("-").join("/")}の新規陽性者数 : {nPatientsLatest.adpatients} 人
               </h2>
             </Alert>
           </div>

@@ -48,8 +48,8 @@ class Comparison extends React.Component {
           <Card.Body>
             <Card.Title>前日比：{this.messageDetector(diffInfo.diff)}</Card.Title>
             <Card.Text>
-              {this.props.before.date} : {diffInfo.before}人 <br />
-              {this.props.latest.date} : {diffInfo.latest}人
+              {this.props.before.date.split("-").join("/")} : {diffInfo.before}人 <br />
+              {this.props.latest.date.split("-").join("/")} : {diffInfo.latest}人
             </Card.Text>
           </Card.Body>
         </Card>

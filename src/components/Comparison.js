@@ -40,7 +40,15 @@ class Comparison extends React.Component {
 
   render() {
     if (this.props.latest !== null && this.props.before !== null) {
-      //const diff = this.props.latest.adpatients - this.props.before.adpatients;
+      /*
+      diffInfoには以下の情報が格納されている
+      diffInfo = {
+        type：この数値のタイプ(adpatients, ndeathsなど)
+        diff：最新とその一日前との数値の差
+        latest：最新日の数値
+        before：最新の一日前の数値
+      }
+       */
       const diffInfo = this.titleAndDiffDetector(this.props.type);
       return (
         <Card className="someInfoCard">

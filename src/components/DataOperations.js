@@ -58,7 +58,7 @@ class DataOperations extends React.Component {
             <Comparison type="ndeaths" latest={nDeathLatest} before={nDeathBefore} />
           </div>
           <Card className="cardParts">
-            <Card.Header>グラフ</Card.Header>
+            <Card.Header>全国の新規陽性者数 推移グラフ</Card.Header>
             <Card.Body className="charts">
               <Charts adpatients={this.props.adpatients} ndeaths={this.props.ndeaths} />
             </Card.Body>

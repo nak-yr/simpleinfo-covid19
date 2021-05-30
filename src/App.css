@@ -17,11 +17,11 @@ h2 {
 }
 
 .someInfo {
-  width: 80vw;
+  width: 90vw;
   margin: auto;
   margin-top: 2vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
 }

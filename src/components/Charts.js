@@ -1,18 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  LineChart,
-  Line,
-  BarChart,
-  Bar,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Legend,
-  Tooltip,
-  ResponsiveContainer,
-  ComposedChart,
-} from "recharts";
+import { Bar, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, ComposedChart } from "recharts";
 import "../App.css";
 
 class Charts extends React.Component {
@@ -23,11 +11,13 @@ class Charts extends React.Component {
         return (
           <div className="custom-tooltip">
             <p className="label">
-              <b>{label}</b>
+              <b>{label.split("-").join("/")}</b>
             </p>
-            <p className="intro">
-              新規陽性者 <b>{payload[0].value}</b> 人
-            </p>
+            <center>
+              <p className="intro">
+                <b>{payload[0].value}</b> 人
+              </p>
+            </center>
           </div>
         );
       }

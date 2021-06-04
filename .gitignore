@@ -24,3 +24,6 @@ yarn-error.log*
 
 # json data file
 /public/data
+
+# firebase hosting cashes
+.firebase/*

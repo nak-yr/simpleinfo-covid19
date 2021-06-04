@@ -10,14 +10,14 @@ class Comparison extends React.Component {
     switch (type) {
       case "adpatients":
         return {
-          type: "新規陽性者数",
+          type: "新規陽性者",
           diff: this.props.latest.adpatients - this.props.before.adpatients,
           latest: this.props.latest.adpatients,
           before: this.props.before.adpatients,
         };
       case "ndeaths":
         return {
-          type: "死亡者数(累計)",
+          type: "累計死者",
           diff: this.props.latest.ndeaths - this.props.before.ndeaths,
           latest: this.props.latest.ndeaths,
           before: this.props.before.ndeaths,
@@ -52,14 +52,23 @@ class Comparison extends React.Component {
       const diffInfo = this.titleAndDiffDetector(this.props.type);
       return (
         <Card className="someInfoCard">
-          <Card.Header>{diffInfo.type}</Card.Header>
-          <Card.Body>
-            <Card.Title>前日比：{this.messageDetector(diffInfo.diff)}</Card.Title>
-            <Card.Text>
+          <center>
+            <Card.Header>{diffInfo.type}</Card.Header>
+          </center>
+          <center>
+            <Card.Body>
+              <Card.Title>
+                前日比
+                <br />
+                {this.messageDetector(diffInfo.diff)}
+              </Card.Title>
+              {/*<Card.Text>
               {this.props.before.date.split("-").join("/")} : {diffInfo.before}人 <br />
               {this.props.latest.date.split("-").join("/")} : {diffInfo.latest}人
             </Card.Text>
-          </Card.Body>
+            */}
+            </Card.Body>
+          </center>
         </Card>
       );
     } else {

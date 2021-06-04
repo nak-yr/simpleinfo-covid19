@@ -4,20 +4,24 @@ h2 {
 }
 
 .cardParts {
-  width: 90vw;
+  width: 95vw;
   margin: auto;
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
 
+.card-body {
+  background-color: white;
+}
+
 .todaysPatientsWrapper {
-  width: 90%;
+  width: 95vw;
   margin: auto;
   margin-top: 2vh;
 }
 
 .someInfo {
-  width: 90vw;
+  width: 95vw;
   margin: auto;
   margin-top: 2vh;
   display: flex;

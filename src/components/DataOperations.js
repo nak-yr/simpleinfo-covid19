@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Alert, Card, Spinner } from "react-bootstrap";
+import { Alert, Carousel, Card, Spinner } from "react-bootstrap";
 import Comparison from "./Comparison";
 import Charts from "./Charts";
 import "../App.css";
@@ -48,15 +48,27 @@ class DataOperations extends React.Component {
         <React.Fragment>
           <div className="todaysPatientsWrapper">
             <Alert variant="danger">
-              <h2>
-                {nPatientsLatest.date.split("-").join("/")}の新規陽性者数 : {nPatientsLatest.adpatients} 人
-              </h2>
+              <h2>{nPatientsLatest.date.split("-").join("/")}時点での情報</h2>
+              <hr />
+              <h2>全国での新規陽性者数 : {nPatientsLatest.adpatients} 人</h2>
             </Alert>
           </div>
           <div className="someInfo">
             <Comparison type="adpatients" latest={nPatientsLatest} before={nPatientsBefore} />
             <Comparison type="ndeaths" latest={nDeathLatest} before={nDeathBefore} />
           </div>
+          {/* カルーセルを用いた感染者数のスライド表示部分(未実装)
+          <center>
+            <Carousel>
+              <Carousel.Item>
+                <Comparison type="adpatients" latest={nPatientsLatest} before={nPatientsBefore} />
+              </Carousel.Item>
+              <Carousel.Item>
+                <Comparison type="ndeaths" latest={nDeathLatest} before={nDeathBefore} />
+              </Carousel.Item>
+            </Carousel>
+          </center>
+          */}
           <Card className="cardParts">
             <Card.Header>全国の新規陽性者数 推移グラフ</Card.Header>
             <Card.Body className="charts">

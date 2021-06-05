@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Alert, Carousel, Card, Spinner } from "react-bootstrap";
+import { Alert, Accordion, Button, Carousel, Card, Spinner } from "react-bootstrap";
 import Comparison from "./Comparison";
 import Charts from "./Charts";
 import "../App.css";
@@ -46,6 +46,19 @@ class DataOperations extends React.Component {
     else {
       return (
         <React.Fragment>
+          <Accordion>
+            <Card>
+              <Card.Header>
+                <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                  Click me!
+                </Accordion.Toggle>
+              </Card.Header>
+              <Card.Body>hugahuga</Card.Body>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>hogehoge</Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
           <div className="todaysPatientsWrapper">
             <Alert variant="danger">
               <h2>{nPatientsLatest.date.split("-").join("/")}時点での情報</h2>

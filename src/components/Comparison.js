@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Card } from "react-bootstrap";
+import { Accordion, Card } from "react-bootstrap";
 import "../App.css";
 
 // 主に最新とその前日の数値の比較を行うclass
@@ -29,9 +29,9 @@ class Comparison extends React.Component {
   // latestとbeforeの差diffから、表示するメッセージを選択する関数
   messageDetector(diff) {
     if (diff > 0) {
-      var diffMessage = <b className="text-danger"> +{diff} 人 </b>;
+      var diffMessage = <b className="text-danger"> +{diff} 人</b>;
     } else if (diff < 0) {
-      diffMessage = <b className="text-success">-{Math.abs(diff)} 人 </b>;
+      diffMessage = <b className="text-success">-{Math.abs(diff)} 人</b>;
     } else {
       diffMessage = "変化なし";
     }
@@ -51,25 +51,31 @@ class Comparison extends React.Component {
        */
       const diffInfo = this.titleAndDiffDetector(this.props.type);
       return (
-        <Card className="someInfoCard">
-          <center>
-            <Card.Header>{diffInfo.type}</Card.Header>
-          </center>
-          <center>
-            <Card.Body>
-              <Card.Title>
-                前日比
-                <br />
-                {this.messageDetector(diffInfo.diff)}
-              </Card.Title>
-              {/*<Card.Text>
-              {this.props.before.date.split("-").join("/")} : {diffInfo.before}人 <br />
-              {this.props.latest.date.split("-").join("/")} : {diffInfo.latest}人
-            </Card.Text>
-            */}
-            </Card.Body>
-          </center>
-        </Card>
+        <Accordion className="someInfoCard">
+          <Card>
+            <center>
+              <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
+                {diffInfo.type} <br /> <b>{diffInfo.latest}人</b>
+              </Accordion.Toggle>
+            </center>
+            <center>
+              <Card.Body>
+                <Card.Title>
+                  前日比
+                  <br />
+                  {this.messageDetector(diffInfo.diff)}
+                </Card.Title>
+                <Accordion.Collapse eventKey="0">
+                  {/* 当日と前日の差分を表示する部分 Card.headerがクリックされると表示される*/}
+                  <Card.Text>
+                    {this.props.before.date.split("-").join("/")} : {diffInfo.before}人 <br />
+                    {this.props.latest.date.split("-").join("/")} : {diffInfo.latest}人
+                  </Card.Text>
+                </Accordion.Collapse>
+              </Card.Body>
+            </center>
+          </Card>
+        </Accordion>
       );
     } else {
       return (

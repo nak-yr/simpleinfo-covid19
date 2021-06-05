@@ -53,7 +53,9 @@ class Comparison extends React.Component {
       return (
         <Card className="someInfoCard">
           <center>
-            <Card.Header>{diffInfo.type}</Card.Header>
+            <Card.Header>
+              {diffInfo.type} <br /> <b>{diffInfo.latest}人</b>
+            </Card.Header>
           </center>
           <center>
             <Card.Body>
@@ -62,11 +64,12 @@ class Comparison extends React.Component {
                 <br />
                 {this.messageDetector(diffInfo.diff)}
               </Card.Title>
-              {/*<Card.Text>
+              {/* 当日と前日の差分を表示する部分 表示内容の簡素化のために現在はコメントアウトしている
+              <Card.Text>
               {this.props.before.date.split("-").join("/")} : {diffInfo.before}人 <br />
               {this.props.latest.date.split("-").join("/")} : {diffInfo.latest}人
-            </Card.Text>
-            */}
+              </Card.Text>
+              */}
             </Card.Body>
           </center>
         </Card>
